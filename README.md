@@ -90,7 +90,7 @@ Um breve resumo sobre a estrutura do projeto pode ser útil:
 
 ### 9. Licença
 
-Este projeto está licenciado sob os termos da Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto está licenciado sob os termos da Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ### 10. Contato
 
