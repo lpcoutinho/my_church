@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Donation Confirmation{% endblock %}
+
+{% block content %}
+    <h2>Thank you for your donation!</h2>
+    <p>Please use the QR code below to complete your payment:</p>
+
+    <!-- QR Code Image with reduced size -->
+    <img src="data:image/png;base64,{{ donation.qr_code_base64 }}" alt="QR Code" style="width: 200px; height: 200px;">
+
+    <h3>Pix Code (Copy and Paste)</h3>
+
+    <!-- Enlarged text area for Pix code -->
+    <textarea readonly style="width: 50%; height: 50px;">{{ donation.qr_code }}</textarea>
+    <button onclick="copyToClipboard()">Copy Pix Code</button>
+
+    <script>
+        function copyToClipboard() {
+            const textarea = document.querySelector('textarea');
+            textarea.select();
+            document.execCommand('copy');
+            alert('Pix code copied to clipboard!');
+        }
+    </script>
+
+    <h4>If you prefer, you can use <a href="{{ donation.ticket_url }}" target="_blank">this link</a> to complete your payment.</h4>
+{% endblock %}

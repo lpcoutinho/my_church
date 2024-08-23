@@ -1,28 +1,48 @@
+<!-- templates/base.html -->
+{% load static %}
+{% now "Y" as year %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Church{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+    <!-- CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- JS do Bootstrap e jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <header>
         <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'contact' %}">Contact</a>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'donation' %}">Donations</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="#">Welcome, {{ user.username }}!</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
         </nav>
     </header>
 
     <div class="content">
         {% block content %}
-        <!-- O conteúdo específico de cada página vai aqui -->
         {% endblock %}
     </div>
 
     <footer>
-        <p>footer</p>
+        <p>&copy; {{ year }} My Church. All rights reserved.</p>
     </footer>
 </body>
 </html>

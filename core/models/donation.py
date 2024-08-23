@@ -46,6 +46,29 @@ class Donation(models.Model):
         default=False, help_text="Marque se a doação foi anônima."
     )
 
+    # Campos para informações do pagamento
+    payment_status = models.CharField(
+        max_length=50, null=True, blank=True, help_text="Status do pagamento."
+    )
+    payment_id = models.CharField(
+        max_length=100, null=True, blank=True, help_text="ID do pagamento."
+    )
+    qr_code = models.TextField(
+        null=True, blank=True, help_text="Código QR para pagamento."
+    )
+    qr_code_base64 = models.TextField(
+        null=True, blank=True, help_text="Código QR em Base64."
+    )
+    ticket_url = models.URLField(
+        max_length=255, null=True, blank=True, help_text="URL do ticket de pagamento."
+    )
+    date_created = models.DateTimeField(
+        null=True, blank=True, help_text="Data de criação do pagamento."
+    )
+    last_updated = models.DateTimeField(
+        null=True, blank=True, help_text="Última atualização do pagamento."
+    )
+
     def __str__(self):
         return (
             f"{self.get_donation_type_display()} - {self.amount} ({self.donation_date})"
