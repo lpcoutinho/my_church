@@ -4,15 +4,26 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0004_alter_customuser_category_and_more'),
+        ("core", "0004_alter_customuser_category_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customuser',
-            name='category',
-            field=models.CharField(choices=[('F', 'Fiel'), ('P', 'Pastor'), ('CL', 'Colaborador'), ('M', 'Missionário'), ('PR', 'Presbítero')], default='F', help_text='Selecione a categoria do usuário.', max_length=2, null=True),
+            model_name="customuser",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("F", "Fiel"),
+                    ("P", "Pastor"),
+                    ("CL", "Colaborador"),
+                    ("M", "Missionário"),
+                    ("PR", "Presbítero"),
+                ],
+                default="F",
+                help_text="Selecione a categoria do usuário.",
+                max_length=2,
+                null=True,
+            ),
         ),
     ]

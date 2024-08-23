@@ -4,36 +4,54 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0001_initial'),
+        ("core", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Congregation',
+            name="Congregation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('address', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("address", models.TextField()),
             ],
         ),
         migrations.RemoveField(
-            model_name='customuser',
-            name='congregation',
+            model_name="customuser",
+            name="congregation",
         ),
         migrations.RemoveField(
-            model_name='customuser',
-            name='role',
+            model_name="customuser",
+            name="role",
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='category',
-            field=models.CharField(choices=[('F', 'Fiel'), ('P', 'Pastor'), ('CL', 'Colaborador'), ('M', 'Missionário'), ('PR', 'Presbítero')], default='F', help_text='Selecione a categoria do usuário.', max_length=2),
+            model_name="customuser",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("F", "Fiel"),
+                    ("P", "Pastor"),
+                    ("CL", "Colaborador"),
+                    ("M", "Missionário"),
+                    ("PR", "Presbítero"),
+                ],
+                default="F",
+                help_text="Selecione a categoria do usuário.",
+                max_length=2,
+            ),
         ),
         migrations.AddField(
-            model_name='customuser',
-            name='congregations',
-            field=models.ManyToManyField(blank=True, to='core.congregation'),
+            model_name="customuser",
+            name="congregations",
+            field=models.ManyToManyField(blank=True, to="core.congregation"),
         ),
     ]

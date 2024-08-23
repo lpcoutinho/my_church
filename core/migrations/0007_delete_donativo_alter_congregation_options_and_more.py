@@ -4,21 +4,23 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0006_donativo_donation'),
+        ("core", "0006_donativo_donation"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Donativo',
+            name="Donativo",
         ),
         migrations.AlterModelOptions(
-            name='congregation',
-            options={'verbose_name': 'Congregação', 'verbose_name_plural': 'Congregações'},
+            name="congregation",
+            options={
+                "verbose_name": "Congregação",
+                "verbose_name_plural": "Congregações",
+            },
         ),
         migrations.AlterModelOptions(
-            name='customuser',
-            options={'verbose_name': 'Usuário', 'verbose_name_plural': 'Usuários'},
+            name="customuser",
+            options={"verbose_name": "Usuário", "verbose_name_plural": "Usuários"},
         ),
     ]

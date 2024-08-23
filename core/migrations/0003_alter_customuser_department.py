@@ -4,15 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0002_congregation_remove_customuser_congregation_and_more'),
+        ("core", "0002_congregation_remove_customuser_congregation_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customuser',
-            name='department',
-            field=models.CharField(choices=[('T', 'Tesouraria'), ('ADM', 'Admninistração'), ('MAN', 'Manutenção'), ('MKT', 'Marketing')], default='ADM', help_text='Selecione o departamento.', max_length=3),
+            model_name="customuser",
+            name="department",
+            field=models.CharField(
+                choices=[
+                    ("T", "Tesouraria"),
+                    ("ADM", "Admninistração"),
+                    ("MAN", "Manutenção"),
+                    ("MKT", "Marketing"),
+                ],
+                default="ADM",
+                help_text="Selecione o departamento.",
+                max_length=3,
+            ),
         ),
     ]

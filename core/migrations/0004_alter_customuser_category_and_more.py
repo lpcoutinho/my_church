@@ -4,20 +4,42 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('core', '0003_alter_customuser_department'),
+        ("core", "0003_alter_customuser_department"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customuser',
-            name='category',
-            field=models.CharField(choices=[('F', 'Fiel'), ('P', 'Pastor'), ('CL', 'Colaborador'), ('M', 'Missionário'), ('PR', 'Presbítero')], default=None, help_text='Selecione a categoria do usuário.', max_length=2),
+            model_name="customuser",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("F", "Fiel"),
+                    ("P", "Pastor"),
+                    ("CL", "Colaborador"),
+                    ("M", "Missionário"),
+                    ("PR", "Presbítero"),
+                ],
+                default=None,
+                help_text="Selecione a categoria do usuário.",
+                max_length=2,
+            ),
         ),
         migrations.AlterField(
-            model_name='customuser',
-            name='department',
-            field=models.CharField(blank=True, choices=[('T', 'Tesouraria'), ('ADM', 'Administração'), ('MAN', 'Manutenção'), ('MKT', 'Marketing')], default=None, help_text='Selecione o departamento.', max_length=3, null=True),
+            model_name="customuser",
+            name="department",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("T", "Tesouraria"),
+                    ("ADM", "Administração"),
+                    ("MAN", "Manutenção"),
+                    ("MKT", "Marketing"),
+                ],
+                default=None,
+                help_text="Selecione o departamento.",
+                max_length=3,
+                null=True,
+            ),
         ),
     ]
