@@ -17,13 +17,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-q_ac570scct=&5f+f&g%l1_v9^%+b6o1q3j^j9xnod(s*b7imt'
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-print('#'*10,SECRET_KEY,'#'*10)
 # # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'core.CustomUser'
 
 # Application definition
 
